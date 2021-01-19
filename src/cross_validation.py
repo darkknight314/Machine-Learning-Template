@@ -58,7 +58,7 @@ class CrossValidation():
 
         elif self.problem_type.startswith("holdout_"):
             holdout_percentage = int(self.problem_type.split('_')[1])
-            train_len = len(dataframe) - int(len(dataframe)*holdout_percentage/100)
+            train_len = len(self.dataframe) - int(len(self.dataframe)*holdout_percentage/100)
             self.dataframe.loc[:train_len, "k_fold"] = 0
             self.dataframe.loc[train_len:, "k_fold"] = 1
                 
